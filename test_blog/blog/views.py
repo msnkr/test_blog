@@ -1,22 +1,31 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post
 
 # Create your views here.
 class PostListView(ListView):
     model = Post
+    ordering = ['-date_published']
+    paginate = 5
 
 
 class PostDetailView(DetailView):
     model = Post
 
 
-class PostCreateView(LoginRequiredMixin, CreateView):
-    model = Post
-    fields = ['title', 'content', 'post_image']
-    
-    login_url = '/login/'
-    redirect_field_name = 'post_create'
+class PostUpdateView(UpdateView):
+    pass
+
+
+class PostCreateView(CreateView):
+    pass
+
+
+class PostDeleteView(DeleteView):
+    pass
+
+
+
 
 

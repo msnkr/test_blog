@@ -17,15 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from blog.views import PostListView, PostDetailView, PostCreateView
-from django.contrib.auth.views import LoginView
+from blog.views import PostListView, PostDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', PostListView.as_view(), name='post_list'),
-    path('<int:pk>/', PostDetailView.as_view(), name='post_detail'),
-    path('create/', PostCreateView.as_view(), name='post_create'),
-    path('login/', LoginView.as_view(template_name='blog/login.html'), name='login'),
+    path('<int:pk>', PostDetailView.as_view(), name='post_detail'),
 ]
 
 if settings.DEBUG:
