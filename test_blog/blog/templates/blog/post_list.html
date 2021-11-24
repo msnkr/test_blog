@@ -1,5 +1,17 @@
 {% extends 'blog/base.html' %}
-
 {% block body %}
-
+    {% for post in post_list %}
+        <div class="post-title mt-5">
+            <h1> <a href="{% url 'post_detail' post.id %}"> {{ post.title }} </a> </h1>
+        </div>
+        <div>
+            <img src="{{ post.post_image.url }}">
+        </div>
+        <div class="post-content">
+            <p>{{ post.content }}</p>
+        </div>
+        <div class="post-author-date">
+            <p>Posted By: {{ post.author }} on {{ post.date_posted }}</p>
+        </div>
+    {% endfor %}
 {% endblock body %}

@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from blog.views import PostListView, PostDetailView
+from blog.views import PostListView, PostDetailView, PostCreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', PostListView.as_view(), name='post_list'),
     path('<int:pk>/', PostDetailView.as_view(), name='post_detail'),
+    path('create/', PostCreateView.as_view(), name='post_create'),
 ]
 
 if settings.DEBUG:
