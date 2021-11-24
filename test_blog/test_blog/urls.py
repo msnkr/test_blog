@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth.views import LoginView
 from blog.views import PostListView, PostDetailView
 
 urlpatterns = [
+    path('login/', LoginView.as_view(template_name='blog/login.html'), name='login'),
     path('admin/', admin.site.urls),
     path('', PostListView.as_view(), name='post_list'),
     path('<int:pk>', PostDetailView.as_view(), name='post_detail'),

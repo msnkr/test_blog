@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post
@@ -14,16 +14,16 @@ class PostDetailView(DetailView):
     model = Post
 
 
-class PostUpdateView(UpdateView):
-    pass
+# class PostUpdateView(UpdateView):
+#     pass
 
 
-class PostCreateView(CreateView):
-    pass
+# class PostCreateView(CreateView):
+#     pass
 
 
-class PostDeleteView(DeleteView):
-    pass
+# class PostDeleteView(DeleteView):
+#     pass
 
 
 
