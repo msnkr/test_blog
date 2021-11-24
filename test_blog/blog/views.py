@@ -14,12 +14,20 @@ class PostDetailView(DetailView):
     model = Post
 
 
-# class PostUpdateView(UpdateView):
-#     pass
+class PostUpdateView(LoginRequiredMixin, UpdateView):
+    model = Post
+    fields = ['title', 'content']
+
+    login_url = '/login/'
+    redirect_field_name = 'post_create'
 
 
-# class PostCreateView(CreateView):
-#     pass
+class PostCreateView(LoginRequiredMixin, CreateView):
+    model = Post
+    fields = ['title', 'content', 'author']
+
+    login_url = '/login/'
+    redirect_field_name = 'post_create'
 
 
 # class PostDeleteView(DeleteView):

@@ -17,11 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from django.contrib.auth.views import LoginView
-from blog.views import PostListView, PostDetailView
+from django.contrib.auth.views import LoginView, LogoutView
+from blog.views import PostListView, PostDetailView, PostCreateView, PostUpdateView
 
 urlpatterns = [
+    path('<int:pk>/update', PostUpdateView.as_view(), name='post_update'),
     path('login/', LoginView.as_view(template_name='blog/login.html'), name='login'),
+    path('logout/', LogoutView.as_view(template_name='blog/logout.html'), name='logout'),
+    path('create/', PostCreateView.as_view(), name='post_create'),
     path('admin/', admin.site.urls),
     path('', PostListView.as_view(), name='post_list'),
     path('<int:pk>', PostDetailView.as_view(), name='post_detail'),
