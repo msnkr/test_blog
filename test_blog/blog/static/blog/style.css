@@ -13,3 +13,8 @@ body {
 a {
     text-decoration: none !important;
 }
+
+.post-image {
+    max-width: 100% !important;
+    height: auto;
+}
