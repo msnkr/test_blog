@@ -12,8 +12,11 @@ class PostDetailView(DetailView):
     model = Post
 
 
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ('title', 'post_image, content')
+    fields = ['title', 'content', 'post_image']
+    
+    login_url = '/login/'
+    redirect_field_name = 'post_create'
 
 
