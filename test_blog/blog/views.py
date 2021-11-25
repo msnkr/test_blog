@@ -16,15 +16,20 @@ class PostDetailView(DetailView):
 
 class PostUpdateView(LoginRequiredMixin, UpdateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'images']
 
     login_url = '/login/'
     redirect_field_name = 'post_create'
 
 
+    def form_valid(self, form):
+        if form.is_valid():
+            form.save()
+
+
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'content', 'author']
+    fields = ['title', 'content', 'author', 'images']
 
     login_url = '/login/'
     redirect_field_name = 'post_create'
