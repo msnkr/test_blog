@@ -18,13 +18,3 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post_detail', kwargs={'pk': self.pk})
-
-
-    # def save(self, *args, **kwargs):
-    #     super().save(*args, **kwargs)
-
-    #     img = Image.open(self.post_image.path)
-    #     output_size = (1000, 700)
-    #     img.resize(output_size)
-    #     img.save(self.post_image.path)
-    
