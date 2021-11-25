@@ -4,8 +4,18 @@ body {
 .post-image, .post-title, .post-content, .post-author-date {
     align-items: center;
     text-align: center;
+    margin-left: 30%;
+    margin-right: 30%;
 }
 
 a {
     text-decoration: none !important;
+}
+
+.post-title {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.post-content {
+    font-family: 'Lora', serif;
 }
