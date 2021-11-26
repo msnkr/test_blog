@@ -4,6 +4,9 @@ body {
 .post-image, .post-title, .post-content, .post-author-date {
     align-items: center;
     text-align: center;
+}
+
+p {
     margin-left: 30%;
     margin-right: 30%;
 }
@@ -18,4 +21,13 @@ a {
 
 .post-content {
     font-family: 'Lora', serif;
+}
+
+input {
+    height: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: center;
+    max-width: 25%;
+    
 }

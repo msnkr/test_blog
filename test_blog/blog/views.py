@@ -1,4 +1,3 @@
-from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post
@@ -16,7 +15,7 @@ class PostDetailView(DetailView):
 
 class PostUpdateView(LoginRequiredMixin, UpdateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'images']
 
     login_url = '/login/'
     redirect_field_name = 'post_create'
@@ -24,14 +23,18 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'content', 'author']
+    fields = ['title', 'content', 'author', 'images']
 
     login_url = '/login/'
     redirect_field_name = 'post_create'
 
 
-# class PostDeleteView(DeleteView):
-#     pass
+class PostDeleteView(LoginRequiredMixin, DeleteView):
+    model = Post
+    success_url = '/'
+
+        
+
 
 
 
