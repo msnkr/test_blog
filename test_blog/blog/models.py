@@ -18,12 +18,3 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post_detail', kwargs={'pk': self.pk})
-
-
-    def save(self):
-        super().save()
-        img = Image.open(self.images.path)
-        if img.width > 1000 and img.height > 550 or img.width < 1000 and img.height < 550:
-            out = (1000, 550)
-            img.thumbnail(out)
-            img.save(self.images.path)
